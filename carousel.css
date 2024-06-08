@@ -1,54 +1,55 @@
-/* Custom Carousel CSS */
-.carousel-item img {
+/* Carousel Container */
+#heroCarousel {
+    position: relative; /* Ensure the carousel has a position context for the controls */
+    overflow: hidden; /* Contain the carousel content */
+}
+
+/* Carousel Inner (Slide Container) */
+#heroCarousel .carousel-inner {
+    width: 100%; 
+    height: auto; 
+}
+
+/* Carousel Items (Slides) */
+#heroCarousel .carousel-item {
+    display: none; /* Hide all slides initially */
     width: 100%;
-    height: auto;
+    height: auto; /* Height determined by content */
+    transition: opacity 0.5s ease-in-out; /* Smooth fade-in/out */
 }
 
-.carousel {
-    position: relative;
+#heroCarousel .carousel-item.active {
+    display: block; /* Show only the active slide */
+    opacity: 1;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    padding: 10px;
+
+/* Controls Styling */
+#heroCarousel .carousel-control-prev,
+#heroCarousel .carousel-control-next {
+  position: absolute;
+  bottom: 20px;
+  width: 40px; 
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-    width: 5%;
+#heroCarousel .carousel-control-prev {
+  left: 20px;
 }
 
-.carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    padding-left: 0;
-    margin-right: 15%;
-    margin-bottom: 0;
-    list-style: none;
+#heroCarousel .carousel-control-next {
+  right: 20px;
 }
 
-.carousel-indicators li {
-    box-sizing: content-box;
-    flex: 0 1 auto;
-    width: 10px;
-    height: 10px;
-    margin-right: 3px;
-    margin-left: 3px;
-    text-indent: -999px;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.5);
-    background-clip: padding-box;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-radius: 50%;
-}
-
-.carousel-indicators .active {
-    background-color: #fff;
+#heroCarousel .carousel-control-prev:hover,
+#heroCarousel .carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
